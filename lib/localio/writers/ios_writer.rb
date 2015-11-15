@@ -36,8 +36,14 @@ class IosWriter
     end
 
     if create_constants && !constant_segments.nil?
-      TemplateHandler.process_template 'ios_constant_localizable.erb', path, 'LocalizableConstants.h', constant_segments
-      puts ' > ' + 'LocalizableConstants.h'.yellow
+      # TemplateHandler.process_template 'ios_constant_localizable.erb', path, 'LocalizableConstants.h', constant_segments
+      # puts ' > ' + 'LocalizableConstants.h'.yellow
+
+      TemplateHandler.process_template 'ios_externconst_h_localizable.erb', path, 'LocalizableConst.h', constant_segments
+      puts ' > ' + 'LocalizableConst.h'.yellow
+
+      TemplateHandler.process_template 'ios_externconst_m_localizable.erb', path, 'LocalizableConst.m', constant_segments
+      puts ' > ' + 'LocalizableConst.m'.yellow
     end
 
   end

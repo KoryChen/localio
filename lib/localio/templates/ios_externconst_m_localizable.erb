@@ -1,0 +1,12 @@
+/*
+LocalizableConst.m
+
+GENERATED - DO NOT MODIFY - use localio instead.
+
+Created by localio.
+*/
+
+<% @segments.each do |term| %>
+NSString *const <%= term.key %>		= @"<%= term.translation %>";<%
+
+end %>
