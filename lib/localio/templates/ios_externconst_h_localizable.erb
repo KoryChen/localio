@@ -1,5 +1,5 @@
 /*
-LocalizableConstants.h
+LocalizableConst.h
 
 GENERATED - DO NOT MODIFY - use localio instead.
 
@@ -7,5 +7,5 @@ Created by localio.
 */
 
 <% @segments.each do |term| %>
-#define		<%= term.key %>		NSLocalizedString(@"<%= term.translation %>",nil)<% 
+extern NSString *const <%= term.key %>;<%
 end %>
