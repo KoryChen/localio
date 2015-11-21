@@ -7,6 +7,7 @@ class IosWriter
   def self.write(languages, terms, path, formatter, options)
     puts 'Writing iOS translations...'
     create_constants = options[:create_constants].nil? ? true : options[:create_constants]
+    create_extern_constants = options[:create_extern_constants].nil? ? true : options[:create_extern_constants]
 
     constant_segments = nil
     languages.keys.each do |lang|
@@ -36,9 +37,11 @@ class IosWriter
     end
 
     if create_constants && !constant_segments.nil?
-      # TemplateHandler.process_template 'ios_constant_localizable.erb', path, 'LocalizableConstants.h', constant_segments
-      # puts ' > ' + 'LocalizableConstants.h'.yellow
+      TemplateHandler.process_template 'ios_constant_localizable.erb', path, 'LocalizableConstants.h', constant_segments
+      puts ' > ' + 'LocalizableConstants.h'.yellow
+    end
 
+    if create_extern_constants && !constant_segments.nil?
       TemplateHandler.process_template 'ios_externconst_h_localizable.erb', path, 'LocalizableConst.h', constant_segments
       puts ' > ' + 'LocalizableConst.h'.yellow
 
