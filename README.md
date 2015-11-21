@@ -80,10 +80,12 @@ Option                      | Description                                       
 
 We can opt-out from the constants/macros. We will simple need to add `:create_constants => false`. By default, if omitted, the constants will be always created. It's a good practice to have a compile-time check of the existence of your keys; but if you don't like it it's fine.
 
+To opt-out from the constants/macros. We will simple need to add `:create_extern_constants => false`. By default, if omitted, the constants will be always created.
+
 Example:
 
 ````ruby
-platform :ios, :create_constants => false
+platform :ios, :create_constants => false, :create_extern_constants => false
 # ... rest of your Locfile ...
 ````
 
