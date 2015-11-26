@@ -2,6 +2,29 @@
 
 Localio generates automatically localizable files for many platforms like Rails, Android, iOS, Java .properties files and JSON files using a centralized spreadsheet as source. The spreadsheet can be in Google Drive or a simple local Excel file.
 
+# 程式說明
+此轉換Script能將這份 iOS 多國語言 Google Sheet ，轉成相對應的Localizable.strings。
+該份Excel之中的暗紅色Row，意即 The key 和 [key] 兩個欄位，只要有定義key就會在轉換的時候加入該語言。
+
+原本使用 https://github.com/mrmans0n/localio 來進行多國語言的轉換
+但此repo有一些使用上的問題，所以自己fork了一個版本來修正。
+請使用: https://github.com/eJamesLin/localio
+
+此版本主要修正了幾個問題：
+- 在產生的檔案加入檔案結尾的換行。
+- 如果有些語言的翻譯尚未完成，修正原本Script的當機，並跳出警告文字，
+- 產生相對應的 extern NSString *const，讓使用上更加便利。
+
+# 安裝教學
+原始程式可使用 RubyGems 來進行安裝，即
+
+    gem install localio
+但經過了fork版本之後，並沒有上傳到RubyGems，所以只能自己build gem。
+
+    git clone https://github.com/eJamesLin/localio.git    
+    gem build localio.gemspec
+    sudo gem install localio
+
 ## Installation
 
 Add this line to your application's Gemfile:
