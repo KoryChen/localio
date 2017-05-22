@@ -23,7 +23,8 @@ Localio generates automatically localizable files for many platforms like Rails,
 
     git clone https://github.com/eJamesLin/localio.git    
     gem build localio.gemspec
-    sudo gem install localio
+    gem install ./localio-0.1.4.gem
+    //sudo gem install localio
 
 ## Installation
 
