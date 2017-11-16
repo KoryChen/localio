@@ -7,7 +7,7 @@ class TemplateHandler
     input_file = File.open(full_template_path, 'rb')
     template = input_file.read
     input_file.close
-    renderer = ERB.new(template)
+    renderer = ERB.new(template, nil, '-')
     output = renderer.result(segments.get_binding)
     output_file = File.new(generated_file_name, 'w')
     output_file.write(output)
